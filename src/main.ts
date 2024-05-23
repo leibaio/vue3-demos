@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import '../tailwind.css'
 import App from './App.vue'
 
 // 引入路由文件

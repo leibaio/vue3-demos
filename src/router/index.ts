@@ -7,6 +7,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/home.vue')
   },
   {
+    path: '/mouse-light',
+    name: 'MouseLight',
+    component: () => import('@/views/mouse-light/index.vue')
+  },
+  {
     path: '/',
     redirect: { name: 'Home' }
   }

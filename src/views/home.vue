@@ -1,5 +1,8 @@
 <template>
-  <section class="index-container">home</section>
+  <section class="index-container">
+    home
+    <h1 class="text-3xl font-bold underline">Mouse Light!</h1>
+  </section>
 </template>
 
 <script setup>
