@@ -5,9 +5,9 @@ export function useNavigation() {
 
   const goToHome = () => { router.push('/') }
   const goToMouseLight = () => { router.push('/mouse-light') }
+  const goToAdd = () => { router.push('add') }
 
   return {
-    goToHome,
-    goToMouseLight
+    goToHome, goToMouseLight, goToAdd
   }
 }

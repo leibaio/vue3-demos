@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,13 +12,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/mouse-light/index.vue')
   },
   {
+    path: '/add',
+    name: 'Add',
+    component: () => import('@/views/add/index.vue')
+  },
+  {
     path: '/',
     redirect: { name: 'Home' }
   }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
