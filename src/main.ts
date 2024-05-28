@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import '../tailwind.css';
 import App from './App.vue';
+import './theme/index.less';
 
 // 引入路由文件
 import router from './router/index';

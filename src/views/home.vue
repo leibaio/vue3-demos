@@ -1,5 +1,5 @@
 <template>
-  <section class="index-container">
+  <section class="nav">
     <div class="flex space-x-3">
       <h1
         class="text-3xl font-bold underline hover:text-blue-200 cursor-pointer"
@@ -11,19 +11,21 @@
         Mouse Light!
       </h1>
     </div>
-    <button @click="handleMouseClick">btn</button>
   </section>
+  <div class="index-container"></div>
+  <ThemeSwitch />
 </template>
 
 <script setup>
-import { useMousePosition, useNavigation } from "@/hooks";
+import ThemeSwitch from "@/components/ThemeSwitch.vue";
+import { useNavigation } from "@/hooks";
 
 const { goToMouseLight, goToAdd } = useNavigation();
-const { x, y } = useMousePosition();
-
-const handleMouseClick = () => {
-  console.log("[ x,y ] >", x.value, y.value);
-};
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.index-container {
+  height: calc(100vh - 66px);
+  overflow: auto;
+}
+</style>
