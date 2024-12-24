@@ -20,7 +20,6 @@
   </section>
 </template>
 <script setup>
-import { ref, reactive } from "vue";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
 import { useNavigation } from "@/hooks";
 const { goToMouseLight, goToAdd } = useNavigation();

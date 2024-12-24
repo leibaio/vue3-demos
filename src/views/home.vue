@@ -1,9 +1,9 @@
 <template>
-  <div>home</div>
+  <IntersectionObserverCard />
 </template>
 
 <script setup>
-import Header from "../components/Header.vue";
+import IntersectionObserverCard from "@/components/IntersectionObserverCard.vue";
 </script>
 
 <style scoped lang="less"></style>

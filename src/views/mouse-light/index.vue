@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="mouse-light-container">
     <!-- 方块盒子 -->
     <div class="item" ref="cardRef1"></div>
     <!-- 方块盒子 -->
@@ -27,9 +27,9 @@ const { cardRef: cardRef3 } = useLightCard({
 </script>
 
 <style scoped lang="less">
-.container {
+.mouse-light-container {
   background: var(--color-bg);
-  width: 100%;
+  width: 1024px;
   height: 100%;
   padding: 200px;
   display: flex;
