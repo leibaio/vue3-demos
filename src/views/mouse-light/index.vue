@@ -28,7 +28,7 @@ const { cardRef: cardRef3 } = useLightCard({
 
 <style scoped lang="less">
 .container {
-  background: black;
+  background: var(--color-bg);
   width: 100%;
   height: 100%;
   padding: 200px;
