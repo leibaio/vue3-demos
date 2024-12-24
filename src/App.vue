@@ -1,6 +1,12 @@
 <template>
-  <router-view />
+  <LayoutWrapper>
+    <router-view />
+  </LayoutWrapper>
 </template>
+
+<script setup lang="ts">
+import LayoutWrapper from "@/layouts/LayoutWrapper.vue";
+</script>
 
 <style lang="less">
 html,
