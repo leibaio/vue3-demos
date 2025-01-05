@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-[200px] flex overflow-x-scroll"
+    class="w-screen h-[200px] flex"
     style="
       background: linear-gradient(-90deg, #6d6d6d10 1px, transparent 0),
         linear-gradient(#6d6d6d10 1px, transparent 0),
