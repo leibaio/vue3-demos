@@ -67,6 +67,8 @@ const carouselItems = reactive([
     title: "Item 6",
   },
 ]);
+
+
 </script>
 
 <style lang="less" scoped></style>

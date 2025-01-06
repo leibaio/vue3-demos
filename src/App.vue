@@ -4,7 +4,7 @@
   </LayoutWrapper>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import LayoutWrapper from "@/layouts/LayoutWrapper.vue";
 </script>
 
