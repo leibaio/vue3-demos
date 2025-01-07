@@ -1,9 +1,9 @@
 <template>
-  <Carousel />
+  <Avatar />
 </template>
 
 <script setup>
-import Carousel from "@/components/Carousel.vue";
+import Avatar from "@/components/Avatar.vue";
 </script>
 
 <style scoped lang="less"></style>
