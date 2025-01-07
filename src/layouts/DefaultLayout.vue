@@ -3,7 +3,7 @@
     <header>
       <Header />
     </header>
-    <main class="p-6 overflow-scroll">
+    <main class="p-6 overflow-hidden">
       <slot></slot>
     </main>
   </div>
