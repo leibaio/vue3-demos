@@ -25,6 +25,7 @@
 import { ref, reactive } from "vue";
 import KeepCalmCrown from "@/assets/keep-calm-crown.svg";
 
+// svg 网站 https://freesvgplanet.com/
 // 字体网站 https://www.cdnfonts.com/
 </script>
 <style lang="less" scoped>
