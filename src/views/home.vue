@@ -1,5 +1,5 @@
 <template>
-  <Avatar />
+  <!-- <Avatar /> -->
 </template>
 
 <script setup>
