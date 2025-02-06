@@ -16,4 +16,9 @@ export const createUser = (data: any) =>
     data
   });
 
-// 更多API处理...
+export const getUsers = (params: any) =>
+  request({
+    url: '/users',
+    method: 'get',
+    params
+  });
