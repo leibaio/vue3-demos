@@ -1,28 +1,12 @@
 // @ts-ignore
-import { createStore, ActionContext } from 'vuex'
+import { createStore } from "vuex";
+import countModule from "./modules/count";
+import userModule from "./modules/user";
 
-const defaultState = {
-  count: 0
-}
-
-// Create a new store instance
-export default createStore({
-  state() {
-    return defaultState
+// @ts-ignore
+export default createStore<RootState>({
+  modules: {
+    count: countModule,
+    user: userModule,
   },
-  mutations: {
-    countAdd(state: typeof defaultState) {
-      state.count += 1
-    }
-  },
-  actions: {
-    countAdd(context: any) {
-      context.commit('countAdd')
-    }
-  },
-  getters: {
-    filterCount(state: typeof defaultState) {
-      return 2 * state.count
-    }
-  }
-})
+});

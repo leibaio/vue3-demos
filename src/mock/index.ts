@@ -15,6 +15,14 @@ Mock.mock("/api/users", "get", {
   },
 });
 
+Mock.mock("/api/user", "post", {
+  code: 200,
+  data: {
+    name: "@cname",
+    email: "@email",
+  },
+});
+
 // 模拟文章数据
 Mock.mock("/api/articles", "get", {
   code: 200,

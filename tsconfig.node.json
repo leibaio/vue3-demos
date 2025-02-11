@@ -15,6 +15,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "./global.d.ts",
-    "./env.d.ts"
+    "./env.d.ts",
+    "src/store/modules/user.ts"
   ]
 }

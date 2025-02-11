@@ -3,8 +3,8 @@ import request from "../utils/request";
 // 获取用户信息
 export const getUserInfo = (params: any) =>
   request({
-    url: '/user/info',
-    method: 'get',
+    url: '/user',
+    method: 'post',
     params
   });
 
