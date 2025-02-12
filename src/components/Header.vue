@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between p-6">
       <div class="flex items-center space-x-3">
         <div class="car-container">
-          <div class="car-icon"></div>
+          <div class="car-icon" @click="goToHome"></div>
           <div class="titles">
             <h1
               class="text-l font-bold hover:text-blue-200 cursor-pointer mr-2"
@@ -12,10 +12,16 @@
               Add
             </h1>
             <h1
-              class="text-l font-bold hover:text-blue-200 cursor-pointer"
+              class="text-l font-bold hover:text-blue-200 cursor-pointer mr-2"
               @click="goToMouseLight"
             >
-              Mouse Light!
+              Light
+            </h1>
+            <h1
+              class="text-l font-bold hover:text-blue-200 cursor-pointer mr-2"
+              @click="goToCommunication"
+            >
+              Communication
             </h1>
           </div>
         </div>
@@ -32,13 +38,19 @@ import { useStore } from "vuex";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
 import { useNavigation } from "@/hooks";
 import { getUserInfo } from "@/api/user";
+import { useRouter } from "vue-router";
 
-const { goToMouseLight, goToAdd } = useNavigation();
+const { goToMouseLight, goToAdd, goToHome } = useNavigation();
 const store = useStore();
+const router = useRouter();
 
 // Computed properties
 const count = computed(() => store.state.count.count);
 const userName = computed(() => store.state.user.name);
+
+const goToCommunication = () => {
+  router.push("/communication");
+};
 
 // Actions
 const fetchUserInfo = async () => {

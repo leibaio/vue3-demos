@@ -20,6 +20,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/add/index.vue"),
   },
   {
+    path: "/communication",
+    name: "Communication",
+    component: () => import("@/views/communication/index.vue"),
+  },
+  {
     path: "/",
     redirect: { name: "Home" },
   },
