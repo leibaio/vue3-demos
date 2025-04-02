@@ -2,6 +2,7 @@
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import path from "path";
 
 export default defineConfig({
   plugins: [vue()],
@@ -9,7 +10,7 @@ export default defineConfig({
     alias: [
       {
         find: "@", //指向的是src目录
-        replacement: resolve(__dirname, "src"),
+        replacement: path.resolve(__dirname, "src"),
       },
     ],
   },

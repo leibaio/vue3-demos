@@ -3,25 +3,15 @@
     <div class="flex items-center justify-between p-6">
       <div class="flex items-center space-x-3">
         <div class="car-container">
-          <div class="car-icon" @click="goToHome"></div>
+          <div class="car-icon" @click="navigateTo('/')"></div>
           <div class="titles">
             <h1
-              class="text-l font-bold hover:text-blue-200 cursor-pointer mr-2"
-              @click="goToAdd"
+              class="text-l font-bold hover:text-blue-500 cursor-pointer mr-2"
+              v-for="(item, index) in navigationMaps"
+              :key="index"
+              @click="navigateTo(item.path)"
             >
-              Add
-            </h1>
-            <h1
-              class="text-l font-bold hover:text-blue-200 cursor-pointer mr-2"
-              @click="goToMouseLight"
-            >
-              Light
-            </h1>
-            <h1
-              class="text-l font-bold hover:text-blue-200 cursor-pointer mr-2"
-              @click="goToCommunication"
-            >
-              Communication
+              {{ item.title }}
             </h1>
           </div>
         </div>
@@ -33,14 +23,12 @@
   </section>
 </template>
 <script setup>
-import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
-import ThemeSwitch from "@/components/ThemeSwitch.vue";
-import { useNavigation } from "@/hooks";
 import { getUserInfo } from "@/api/user";
+import ThemeSwitch from "@/components/ThemeSwitch.vue";
+import { computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-const { goToMouseLight, goToAdd, goToHome } = useNavigation();
 const store = useStore();
 const router = useRouter();
 
@@ -48,8 +36,14 @@ const router = useRouter();
 const count = computed(() => store.state.count.count);
 const userName = computed(() => store.state.user.name);
 
-const goToCommunication = () => {
-  router.push("/communication");
+const navigationMaps = [
+  { title: "Add", path: "/add" },
+  { title: "Light", path: "/mouse-light" },
+  { title: "Communication", path: "/communication" },
+];
+
+const navigateTo = (path) => {
+  router.push(path);
 };
 
 // Actions
