@@ -2,8 +2,8 @@
   <section>
     <div class="flex items-center justify-between p-6">
       <div class="flex items-center space-x-3">
-        <div class="car-container">
-          <div class="car-icon" @click="navigateTo('/')"></div>
+        <div :class="['car-container', { expanded: isExpanded }]">
+          <div class="car-icon" @click="toggleMenu"></div>
           <div class="titles">
             <h1
               class="text-l font-bold hover:text-blue-500 cursor-pointer mr-2"
@@ -22,28 +22,37 @@
     </div>
   </section>
 </template>
+
 <script setup>
 import { getUserInfo } from "@/api/user";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 const store = useStore();
 const router = useRouter();
 
+const isExpanded = ref(false);
+
 // Computed properties
 const count = computed(() => store.state.count.count);
 const userName = computed(() => store.state.user.name);
 
 const navigationMaps = [
+  { title: "Home", path: "/" },
   { title: "Add", path: "/add" },
   { title: "Light", path: "/mouse-light" },
   { title: "Communication", path: "/communication" },
+  { title: "Canvas", path: "/canvas" },
 ];
 
 const navigateTo = (path) => {
   router.push(path);
+};
+
+const toggleMenu = () => {
+  isExpanded.value = !isExpanded.value;
 };
 
 // Actions
@@ -65,40 +74,42 @@ onMounted(() => {
 <style lang="less" scoped>
 .car-container {
   position: relative;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   width: 40px; // 初始宽度，仅显示图标
   height: 40px;
   transition: width 0.3s ease;
   cursor: pointer;
-  &:hover {
-    width: 300px;
+
+  &.expanded {
+    width: auto;
+    max-width: 80vw; // 设置最大宽度，防止在小屏幕上溢出
   }
+
   .car-icon {
+    flex-shrink: 0;
     width: 32px;
     height: 32px;
     background: url("../assets/car-alt.svg") no-repeat center/cover;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    z-index: 2;
+    margin-right: 8px;
   }
+
   .titles {
-    position: absolute;
-    left: 40px;
-    top: 0;
     display: flex;
     align-items: center;
-    height: 100%;
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
   }
-  &:hover .titles {
+
+  &.expanded .titles {
     opacity: 1;
+    pointer-events: auto;
   }
-  .title {
+
+  h1 {
     margin-right: 15px;
     font-weight: bold;
     color: #333;

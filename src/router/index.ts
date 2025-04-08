@@ -25,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/communication/index.vue"),
   },
   {
+    path: "/canvas",
+    name: "Canvas",
+    component: () => import("@/views/canvas/index.vue"),
+  },
+  {
     path: "/",
     redirect: { name: "Home" },
   },
