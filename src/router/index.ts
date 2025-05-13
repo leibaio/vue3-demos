@@ -24,19 +24,19 @@ const routes: Array<RouteRecordRaw> = [
     path: "/add",
     name: "Add",
     meta: { layout: "sidebar" },
-    component: () => import("@/views/add/index.vue"),
+    component: () => import("@/views/side-demos/add/index.vue"),
   },
   {
     path: "/communication",
     name: "Communication",
     meta: { layout: "sidebar" },
-    component: () => import("@/views/communication/index.vue"),
+    component: () => import("@/views/side-demos/communication/index.vue"),
   },
   {
     path: "/canvas",
     name: "Canvas",
     meta: { layout: "sidebar" },
-    component: () => import("@/views/canvas/index.vue"),
+    component: () => import("@/views/side-demos/canvas/index.vue"),
   },
   {
     path: "/",

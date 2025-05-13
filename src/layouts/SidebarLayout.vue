@@ -1,6 +1,6 @@
 <template>
-  <div class="flex min-h-screen">
-    <div class="w-[50] bg-slate-600 p-4">
+  <div class="flex min-h-screen overflow-hidden">
+    <div class="w-[50] bg-slate-600 p-4 overflow-y-auto h-screen">
       <nav>
         <ul>
           <li v-for="item in menuItems" :key="item.path" class="mb-2">
@@ -11,7 +11,7 @@
         </ul>
       </nav>
     </div>
-    <main class="flex-1 p-4">
+    <main class="flex-1 p-4 overflow-y-auto h-screen">
       <slot></slot>
     </main>
   </div>
