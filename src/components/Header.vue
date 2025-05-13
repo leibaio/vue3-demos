@@ -42,7 +42,7 @@ const userName = computed(() => store.state.user.name);
 
 const navigationMaps = [
   { title: "Home", path: "/" },
-  { title: "Side", path: "/mouse-light" },
+  { title: "Side", path: "/gsap" },
 ];
 
 const navigateTo = (path) => {
