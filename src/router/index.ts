@@ -12,21 +12,30 @@ const routes: Array<RouteRecordRaw> = [
     path: "/mouse-light",
     name: "MouseLight",
     meta: { layout: "sidebar" },
-    component: () => import("@/views/mouse-light/index.vue"),
+    component: () => import("@/views/side-demos/mouse-light/index.vue"),
+  },
+  {
+    path: "/gsap",
+    name: "Gsap",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/gsap/index.vue"),
   },
   {
     path: "/add",
     name: "Add",
+    meta: { layout: "sidebar" },
     component: () => import("@/views/add/index.vue"),
   },
   {
     path: "/communication",
     name: "Communication",
+    meta: { layout: "sidebar" },
     component: () => import("@/views/communication/index.vue"),
   },
   {
     path: "/canvas",
     name: "Canvas",
+    meta: { layout: "sidebar" },
     component: () => import("@/views/canvas/index.vue"),
   },
   {

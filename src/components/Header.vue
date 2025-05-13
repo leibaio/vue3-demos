@@ -2,11 +2,11 @@
   <section>
     <div class="flex items-center justify-between p-6">
       <div class="flex items-center space-x-3">
-        <div :class="['car-container', { expanded: isExpanded }]">
-          <div class="car-icon" @click="toggleMenu"></div>
+        <ToggleMenu @toggle="toggleMenu" />
+        <div :class="['menu-container', { expanded: isExpanded }]">
           <div class="titles">
             <h1
-              class="text-l font-bold hover:text-blue-500 cursor-pointer mr-2"
+              class="text-l font-bold cursor-pointer mr-2 hover:border-b-2 hover:border-current pb-1 transition-all duration-200"
               v-for="(item, index) in navigationMaps"
               :key="index"
               @click="navigateTo(item.path)"
@@ -29,6 +29,7 @@ import ThemeSwitch from "@/components/ThemeSwitch.vue";
 import { computed, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import ToggleMenu from "./ToggleMenu.vue";
 
 const store = useStore();
 const router = useRouter();
@@ -41,10 +42,7 @@ const userName = computed(() => store.state.user.name);
 
 const navigationMaps = [
   { title: "Home", path: "/" },
-  { title: "Add", path: "/add" },
-  { title: "Light", path: "/mouse-light" },
-  { title: "Communication", path: "/communication" },
-  { title: "Canvas", path: "/canvas" },
+  { title: "Side", path: "/mouse-light" },
 ];
 
 const navigateTo = (path) => {
@@ -72,7 +70,7 @@ onMounted(() => {
 });
 </script>
 <style lang="less" scoped>
-.car-container {
+.menu-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -87,14 +85,6 @@ onMounted(() => {
     max-width: 80vw; // 设置最大宽度，防止在小屏幕上溢出
   }
 
-  .car-icon {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    background: url("../assets/car-alt.svg") no-repeat center/cover;
-    margin-right: 8px;
-  }
-
   .titles {
     display: flex;
     align-items: center;
@@ -107,16 +97,6 @@ onMounted(() => {
   &.expanded .titles {
     opacity: 1;
     pointer-events: auto;
-  }
-
-  h1 {
-    margin-right: 15px;
-    font-weight: bold;
-    color: #333;
-    transition: color 0.2s ease;
-    &:hover {
-      color: #3498db;
-    }
   }
 }
 </style>

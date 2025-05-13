@@ -1,13 +1,25 @@
 <template>
   <div class="flex min-h-screen">
-    <div class="w-64 bg-slate-600 ">side</div>
-    <main class="flex-1">
+    <div class="w-[50] bg-slate-600 p-4">
+      <nav>
+        <ul>
+          <li v-for="item in menuItems" :key="item.path" class="mb-2">
+            <router-link :to="item.path" class="text-white hover:text-gray-300">
+              {{ item.title }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main class="flex-1 p-4">
       <slot></slot>
     </main>
   </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { menuItems } from "@/config/menuConfig";
+</script>
 
 <style scoped>
 /* 布局样式 */
