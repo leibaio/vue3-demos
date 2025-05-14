@@ -27,6 +27,18 @@ export const menuItems: MenuItem[] = [
     path: "/canvas",
   },
   {
+    title: "TabA",
+    path: "/tab-a",
+  },
+  {
+    title: "TabB",
+    path: "/tab-b",
+  },
+  {
+    title: "VirtualList",
+    path: "/virtual-list",
+  },
+  {
     title: "Gsap",
     path: "/gsap",
   },

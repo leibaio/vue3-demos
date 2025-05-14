@@ -15,6 +15,24 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/side-demos/mouse-light/index.vue"),
   },
   {
+    path: "/virtual-list",
+    name: "VirtualList",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/virtual-list/index.vue"),
+  },
+  {
+    path: "/tab-a",
+    name: "TabA",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/tab-a/index.vue"),
+  },
+  {
+    path: "/tab-b",
+    name: "TabB",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/tab-b/index.vue"),
+  },
+  {
     path: "/gsap",
     name: "Gsap",
     meta: { layout: "sidebar" },
