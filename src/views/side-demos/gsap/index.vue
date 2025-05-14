@@ -1,23 +1,32 @@
 <template>
   <div class="gsap-container">
-    <div ref="boxRef" class="box"></div>
+    <div class="box a mb-[500px]" ref="boxRefA"></div>
+    <div class="box b mb-[500px]" ref="boxRefB"></div>
+    <div class="box c mb-[500px]" ref="boxRefC"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted, ref } from "vue";
 
-const boxRef = ref<HTMLElement | null>(null);
+gsap.registerPlugin(ScrollTrigger);
+
+const boxRefA = ref<HTMLElement | null>(null);
+const boxRefB = ref<HTMLElement | null>(null);
+const boxRefC = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  if (boxRef.value) {
-    gsap.to(boxRef.value, {
-      x: 200,
-      duration: 1, // 动画持续时间（秒）
-      ease: "power2.out", // 缓动函数
-    });
-  }
+  gsap.to(".c", {
+    scrollTrigger: {
+      trigger: ".c",
+      toggleActions: "restart none none none",
+    },
+    x: 400,
+    rotation: 360,
+    duration: 3,
+  });
 });
 </script>
 
@@ -27,6 +36,15 @@ onMounted(() => {
   width: 75px;
   height: 75px;
   border-radius: 12px;
-  background-color: green;
+
+  &.a {
+    background-color: #ff0000;
+  }
+  &.b {
+    background-color: #00ff00;
+  }
+  &.c {
+    background-color: #0000ff;
+  }
 }
 </style>
