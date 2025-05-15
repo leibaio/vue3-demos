@@ -33,6 +33,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/side-demos/tab-b/index.vue"),
   },
   {
+    path: "/threejs",
+    name: "Threejs",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/threejs/index.vue"),
+  },
+  {
     path: "/gsap",
     name: "Gsap",
     meta: { layout: "sidebar" },

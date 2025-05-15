@@ -39,6 +39,10 @@ export const menuItems: MenuItem[] = [
     path: "/virtual-list",
   },
   {
+    title: "Threejs",
+    path: "/threejs",
+  },
+  {
     title: "Gsap",
     path: "/gsap",
   },
