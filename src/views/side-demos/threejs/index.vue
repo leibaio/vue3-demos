@@ -1,5 +1,5 @@
 <template>
-  <h1>threejs</h1>
+  <h2>threejs</h2>
   <div class="container" ref="container"></div>
 </template>
 <script setup>
