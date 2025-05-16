@@ -1,6 +1,7 @@
 // @ts-nocheck
 import naive from "naive-ui";
 import { createApp } from "vue";
+import { createGtag } from "vue-gtag";
 import "../tailwind.css";
 import App from "./App.vue";
 import "./theme/index.less";
@@ -15,4 +16,14 @@ if (import.meta.env.DEV && import.meta.env.VITE_USE_MOCK === "true") {
   await import("./mock");
 }
 
-createApp(App).use(router).use(store).use(naive).mount("#app");
+const app = createApp(App);
+
+const gtagOptions = {
+  config: { id: "G-DFCNSRM90R" },
+  // enabled: true,
+  // debug: true,
+};
+
+app.use(router).use(store).use(naive).use(createGtag(gtagOptions));
+
+app.mount("#app");

@@ -43,6 +43,10 @@ export const menuItems: MenuItem[] = [
     path: "/threejs",
   },
   {
+    title: "Gtag",
+    path: "/gtag",
+  },
+  {
     title: "Gsap",
     path: "/gsap",
   },
