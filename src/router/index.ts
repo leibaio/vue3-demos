@@ -79,4 +79,8 @@ const router = createRouter({
   routes,
 });
 
+router.afterEach((to, from) => {
+  document.title = to.name ? to.name : "Vite +  Vue3 + TS";
+});
+
 export default router;
