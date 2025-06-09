@@ -50,4 +50,12 @@ export const menuItems: MenuItem[] = [
     title: "Gsap",
     path: "/gsap",
   },
+  {
+    title: "P-Queue",
+    path: "/p-queue",
+  },
+  {
+    title: "EventBus",
+    path: "/eventbus",
+  },
 ];

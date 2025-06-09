@@ -69,6 +69,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/side-demos/canvas/index.vue"),
   },
   {
+    path: "/p-queue",
+    name: "queue",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/p-queue/index.vue"),
+  },
+  {
+    path: "/eventbus",
+    name: "EventBus",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/event-bus/index.vue"),
+  },
+  {
     path: "/",
     redirect: { name: "Home" },
   },
