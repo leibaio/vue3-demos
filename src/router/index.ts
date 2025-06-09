@@ -81,6 +81,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/side-demos/event-bus/index.vue"),
   },
   {
+    path: "/book-cover",
+    name: "BookCover",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/book-cover/index.vue"),
+  },
+  {
+    path: "/pdf-parse",
+    name: "PDFParse",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/pdf-parse/index.vue"),
+  },
+  {
     path: "/",
     redirect: { name: "Home" },
   },

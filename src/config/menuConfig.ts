@@ -58,4 +58,12 @@ export const menuItems: MenuItem[] = [
     title: "EventBus",
     path: "/eventbus",
   },
+  {
+    title: "BookCover",
+    path: "/book-cover",
+  },
+  {
+    title: "PDFParse",
+    path: "/pdf-parse",
+  },
 ];
