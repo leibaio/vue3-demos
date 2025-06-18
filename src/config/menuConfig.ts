@@ -66,4 +66,8 @@ export const menuItems: MenuItem[] = [
     title: "PDFParse",
     path: "/pdf-parse",
   },
+  {
+    title: "Vue3Grammar",
+    path: "/vue3-grammar",
+  },
 ];

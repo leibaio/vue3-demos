@@ -16,7 +16,7 @@ export default defineConfig({
   },
   base: "./", // 打包路径
   server: {
-    port: 8888, // 服务端口
+    port: 9000, // 服务端口
     open: true, // 启动服务时是否自动打开浏览器
     cors: true, // 允许跨域
   },

@@ -93,6 +93,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/side-demos/pdf-parse/index.vue"),
   },
   {
+    path: "/vue3-grammar",
+    name: "Vue3Grammar",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/vue3-grammar/index.vue"),
+  },
+  {
     path: "/",
     redirect: { name: "Home" },
   },

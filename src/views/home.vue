@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { getUsers, getUserInfo } from "@/api/user";
+import { getUserInfo, getUsers } from "@/api/user";
 import { ref } from "vue";
 import { useStore } from "vuex";
 
