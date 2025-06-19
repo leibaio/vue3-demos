@@ -53,7 +53,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/add",
     name: "Add",
-    meta: { layout: "sidebar" },
+    meta: { layout: "sidebar", keepAlive: true },
     component: () => import("@/views/side-demos/add/index.vue"),
   },
   {

@@ -12,13 +12,23 @@
       </nav>
     </div>
     <main class="flex-1 p-4 overflow-y-auto h-screen">
-      <slot></slot>
+      <!-- <slot></slot> -->
+      <router-view v-slot="{ Component }">
+        <KeepAlive :include="cachedViews">
+          <component :is="Component" />
+        </KeepAlive>
+      </router-view>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
 import { menuItems } from "@/config/menuConfig";
+import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const cachedViews = ref(["Add"]);
 </script>
 
 <style scoped>
