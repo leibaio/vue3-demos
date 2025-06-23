@@ -67,6 +67,10 @@ export const menuItems: MenuItem[] = [
     path: "/pdf-parse",
   },
   {
+    title: "LazyLoad",
+    path: "/lazy-load",
+  },
+  {
     title: "Vue3Grammar",
     path: "/vue3-grammar",
   },

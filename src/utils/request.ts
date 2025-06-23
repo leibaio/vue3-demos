@@ -24,7 +24,7 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response: AxiosResponse) => {
     const res = response.data;
-    if (res.code !== 200) {
+    if (![200, 1].includes(res.code)) {
       return Promise.reject(new Error(res.message || "Error"));
     } else {
       return response.data;

@@ -93,6 +93,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("@/views/side-demos/pdf-parse/index.vue"),
   },
   {
+    path: "/lazy-load",
+    name: "LazyLoad",
+    meta: { layout: "sidebar" },
+    component: () => import("@/views/side-demos/lazy-load/index.vue"),
+  },
+  {
     path: "/vue3-grammar",
     name: "Vue3Grammar",
     meta: { layout: "sidebar" },

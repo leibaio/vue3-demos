@@ -1,6 +1,12 @@
 <template>
   <h1>Some days you bloom, some days you grow roots. Both matter.</h1>
 
+  <input type="text" v-model.lazy="lazyValue" />
+
+  <div>{{ lazyValue }}</div>
+
+  <div>x:{{ x }},y:{{ y }}</div>
+
   <div v-if="false">v-if false</div>
   <div v-show="false">v-show false</div>
   <div v-if="true">v-if true</div>
@@ -37,6 +43,7 @@
   </MyDialog>
 </template>
 <script setup>
+import { useMove } from "@/hooks/useMove";
 import { ref, watch, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import MyDialog from "./components/MyDialog.vue";
@@ -46,6 +53,8 @@ const route = useRoute();
 const count = ref(0);
 const showDialog = ref(false);
 const msg = ref("0");
+const lazyValue = ref("");
+const { x, y } = useMove();
 
 msg.value = "q";
 msg.value = "a";

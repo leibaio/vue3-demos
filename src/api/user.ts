@@ -5,7 +5,7 @@ export const getUserInfo = (params: any) =>
   request({
     url: '/user',
     method: 'post',
-    params
+    data: params
   });
 
 // 创建用户

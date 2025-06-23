@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, onActivated, onDeactivated } from "vue";
+import { ref, onActivated, onDeactivated, onMounted, onUpdated } from "vue";
 import { useAdd } from "@/hooks";
 
 defineOptions({
@@ -39,12 +39,22 @@ const handleClickCount = () => {
   num1.value++;
 };
 
+console.log("[ setup ] >");
+
 onActivated(() => {
   console.log("Add 组件被激活");
 });
 
 onDeactivated(() => {
   console.log("Add 组件被缓存");
+});
+
+onMounted(() => {
+  console.log("[ onMounted ] >");
+});
+
+onUpdated(() => {
+  console.log("[ onUpdated ] >");
 });
 </script>
 
