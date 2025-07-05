@@ -1,11 +1,14 @@
 <template>
-  <LayoutWrapper>
-    <router-view />
-  </LayoutWrapper>
+  <n-config-provider>
+    <LayoutWrapper>
+      <router-view />
+    </LayoutWrapper>
+  </n-config-provider>
 </template>
 
 <script setup>
 import LayoutWrapper from "@/layouts/LayoutWrapper.vue";
+import { NConfigProvider } from "naive-ui";
 </script>
 
 <style lang="less">

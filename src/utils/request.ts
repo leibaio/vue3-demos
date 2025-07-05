@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
+import store from "../store";
 
 // 创建axios实例
 const request: AxiosInstance = axios.create({
@@ -10,9 +11,11 @@ const request: AxiosInstance = axios.create({
 request.interceptors.request.use(
   (config: any) => {
     // 这里可以添加一些请求前的逻辑，比如携带token等
-    // if (store.getters.token) {
-    //   config.headers['Authorization'] = getToken();
-    // }
+    const token = store.getters["user/userToken"];
+    if (token) {
+      config.headers["token"] = `${token}`;
+      // config.headers["Authorization"] = `${token}`;
+    }
     return config;
   },
   (error) => {

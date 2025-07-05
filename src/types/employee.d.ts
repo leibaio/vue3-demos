@@ -9,3 +9,9 @@ export interface EmployeeLoginResult {
   name: string;
   token: string;
 }
+
+export interface EmployeeListQueryParams {
+  name?: string;
+  page: number;
+  pageSize: number;
+}

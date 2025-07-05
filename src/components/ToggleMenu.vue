@@ -5,7 +5,7 @@
   </label>
 </template>
 <script setup lang="ts">
-import { ref, reactive, defineEmits } from "vue";
+import { ref, reactive } from "vue";
 
 const emit = defineEmits(["toggle"]);
 const toggle = (e) => {

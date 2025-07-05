@@ -34,3 +34,8 @@ configure({
 app.use(router).use(store).use(naive);
 
 app.mount("#app");
+
+const storedToken = localStorage.getItem("userToken");
+if (storedToken) {
+  store.dispatch("user/updateToken", storedToken);
+}

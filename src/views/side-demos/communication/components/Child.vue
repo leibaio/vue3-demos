@@ -12,7 +12,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, defineEmits } from "vue";
+import { ref, reactive  } from "vue";
 
 const props = defineProps(["person"]);
 const emit = defineEmits(["childTest"]);
