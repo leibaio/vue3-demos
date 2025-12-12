@@ -55,7 +55,7 @@ const captureImage = () => {
 .capture-container {
   width: 380px;
   height: 380px;
-  background: linear-gradient(to bottom, #2563eb, #93c5fd);
+  background: linear-gradient(to bottom, #8F7265, #C3AA96);
   display: flex;
   align-items: center;
   justify-content: center;
