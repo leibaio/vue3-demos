@@ -7,6 +7,7 @@
   <div v-if="users.length > 0">
     {{ users }}
   </div>
+  <Avatar />
 
   <div v-if="userInfo.id">{{ userInfo }}</div>
 
