@@ -4,6 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 头像组件的字体。刻意放在这里而不是 SFC 的 <style> 里用 @import：
+         SFC 内的 @import 只在该组件挂载后才生效，而风格是 <component :is> 懒切换的，
+         一个从未渲染过的风格在文档里就没有 @font-face 规则，
+         于是 document.fonts.load("… Permanent Marker") 返回空数组（找不到声明），
+         导出会静默回落成 fallback 字体。放 <link> 则 HTML 解析期就发起下载，
+         @font-face 从首屏起就存在于文档中，且四个族只需一次请求。
+
+         改这个 URL 前先核对 src/components/avatar/styles.ts 里的 fonts 字段：
+         Permanent Marker 只有一个字重、没有斜体，写成 Permanent+Marker:wght@700
+         会让整个请求 404、四个族全部静默失效。 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inconsolata:wght@700&family=Permanent+Marker&family=Caveat:wght@400;700&display=swap"
+    />
     <title>Vite + Vue + TS</title>
   </head>
   <body>
