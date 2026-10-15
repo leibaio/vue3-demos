@@ -7,6 +7,19 @@
           开启圆形头像预览
         </label>
       </div>
+      <n-radio-group
+        v-model:value="currentKey"
+        class="style-switch"
+        size="small"
+        aria-label="头像风格"
+      >
+        <n-radio-button
+          v-for="s in avatarStyles"
+          :key="s.key"
+          :value="s.key"
+          :label="s.label"
+        />
+      </n-radio-group>
       <button class="action-btn" :disabled="isCapturing" @click="captureImage">
         💾 保存高清头像
       </button>
@@ -30,7 +43,7 @@
 
 <script setup>
 import html2canvas from "html2canvas";
-import { computed, nextTick, ref } from "vue";
+import { computed, nextTick, onMounted, ref } from "vue";
 
 import { avatarStyles } from "./avatar/styles";
 
@@ -46,6 +59,34 @@ const current = computed(
   () => avatarStyles.find((s) => s.key === currentKey.value) ?? avatarStyles[0]
 );
 
+// 加载【所有】风格的字体清单，而不只是当前风格：index.html 的 <link> 之后
+// 它们已经在路上，代价为零；否则「切到某风格才去加载它的字体」会把
+// 「字体是否可用」耦合到「用户是否点过这个风格」。
+const ALL_FONT_SPECS = avatarStyles.flatMap((s) => s.fonts);
+
+// @font-face 只把 FontFace 以 unloaded 状态放进 document.fonts，
+// 而 document.fonts.ready 只等 loading 状态的面 —— 光等它是不够的，必须显式 load。
+// load() 返回空数组 = 文档里根本没有匹配的 @font-face，是最有价值的诊断信号
+// （字体 <link> 没生效 / family 名写错 / URL 404 都会是这个结果）。
+async function ensureFontsReady() {
+  const results = await Promise.all(
+    ALL_FONT_SPECS.map((spec) => document.fonts.load(spec).catch(() => []))
+  );
+  if (import.meta.env.DEV) {
+    results.forEach((faces, i) => {
+      if (faces.length === 0) {
+        console.warn(`[Avatar] 字体未能加载：${ALL_FONT_SPECS[i]}`);
+      }
+    });
+  }
+  await document.fonts.ready;
+}
+
+// 预热：首次点「保存」时字体已在缓存里，不用等下载
+onMounted(() => {
+  ensureFontsReady();
+});
+
 const captureImage = async () => {
   if (!captureDiv.value || isCapturing.value) return;
   isCapturing.value = true;
@@ -56,7 +97,7 @@ const captureImage = async () => {
     showPreviewMask.value = false;
     await nextTick();
 
-    await document.fonts.ready;
+    await ensureFontsReady();
     await new Promise((resolve) => setTimeout(resolve, 100));
 
     const canvas = await html2canvas(captureDiv.value, {
@@ -101,6 +142,16 @@ const captureImage = async () => {
   padding: 10px 20px;
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* 药丸布局原本只装两个子元素、没有 flex-wrap，
+     加入风格切换器后窄视口会横向溢出，所以补上这两条 */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* naive-ui 组件内部的 DOM 上没有 scoped 属性，外壳的 <style scoped> 够不到，
+   必须用 :deep() */
+.style-switch :deep(.n-radio-button) {
+  font-weight: 600;
 }
 
 .toggle-wrapper label {

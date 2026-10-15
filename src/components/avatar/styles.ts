@@ -1,10 +1,11 @@
 import { markRaw, type Component } from "vue";
 
+import AvatarChalk from "./AvatarChalk.vue";
 import AvatarKeepCalm from "./AvatarKeepCalm.vue";
 
 export interface AvatarStyle {
   /** 稳定标识，切换器的 v-model 值。收成字面量联合 —— 写错 key 即编译错误 */
-  key: "keepcalm";
+  key: "keepcalm" | "chalk";
   /** 切换器上的显示名 */
   label: string;
   /** 导出 PNG 的文件名 */
@@ -29,6 +30,16 @@ export const avatarStyles: readonly AvatarStyle[] = Object.freeze([
     fileName: "KeepCalm_RiseOn_Avatar.png",
     component: markRaw(AvatarKeepCalm),
     fonts: ["900 64px Montserrat", "700 24px Montserrat", "700 18px Inconsolata"],
+  },
+  {
+    key: "chalk",
+    label: "Chalk",
+    fileName: "Chalk_RiseOn_Avatar.png",
+    component: markRaw(AvatarChalk),
+    // Permanent Marker 只有一个字重，没有斜体 —— 这里写 400。
+    // 别把 index.html 的 URL 改成 Permanent+Marker:wght@700：那会让整个请求 404，
+    // 四个族一起静默失效。
+    fonts: ["400 132px 'Permanent Marker'", "400 28px Caveat", "700 28px Caveat"],
   },
 ]);
 
