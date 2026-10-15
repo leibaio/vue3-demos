@@ -20,7 +20,7 @@
         <div class="binary-text">01101100&nbsp;&nbsp;&nbsp;01101101</div>
       </div>
       <div class="text and">AND</div>
-      <div class="text code">CODE</div>
+      <div class="text code">RISE</div>
       <div class="text on">ON</div>
     </div>
   </div>
@@ -55,7 +55,7 @@ const captureImage = () => {
 .capture-container {
   width: 380px;
   height: 380px;
-  background: linear-gradient(to bottom, #8F7265, #C3AA96);
+  background: linear-gradient(to bottom, #c2410c, #fb923c, #fed7aa);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -10,6 +10,8 @@
 
   <div v-if="userInfo.id">{{ userInfo }}</div>
 
+  <Avatar />
+
   <n-form
     ref="formRef"
     inline
@@ -40,6 +42,7 @@ import { login, queryEmployeeList } from "@/api/employee";
 import { getUserInfo, getUsers } from "@/api/user";
 import { ref } from "vue";
 import { useStore } from "vuex";
+import Avatar from "@/components/Avatar.vue";
 
 const users = ref({});
 const store = useStore();
