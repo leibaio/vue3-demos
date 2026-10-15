@@ -11,7 +11,6 @@
 
   <div v-if="userInfo.id">{{ userInfo }}</div>
 
-  <Avatar />
 
   <n-form
     ref="formRef"

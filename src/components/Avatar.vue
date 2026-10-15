@@ -37,9 +37,6 @@
 
         <div class="preview-mask" v-if="showPreviewMask"></div>
       </div>
-      <div class="text and">AND</div>
-      <div class="text code">RISE</div>
-      <div class="text on">ON</div>
     </div>
   </div>
 </template>
@@ -134,9 +131,13 @@ const captureImage = async () => {
 
 /* 截图容器 - 核心设计区域 */
 .capture-container {
-  width: 380px;
-  height: 380px;
-  background: linear-gradient(to bottom, #8F7265, #C3AA96);
+  position: relative;
+  width: 400px; /* 400px 方便计算，导出高清 */
+  height: 400px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #f2e9e0, #e8ded5, #d1baaa, #a68573);
+  /* #E8DED5 → #D1BAAA → #C77E5E #DCAB88  */
+  /* #F2E9E0 → #E8DED5 → #D1BAAA → #A68573 */
   display: flex;
   align-items: center;
   justify-content: center;
