@@ -39,7 +39,9 @@ export const avatarStyles: readonly AvatarStyle[] = Object.freeze([
     // Permanent Marker 只有一个字重，没有斜体 —— 这里写 400。
     // 别把 index.html 的 URL 改成 Permanent+Marker:wght@700：那会让整个请求 404，
     // 四个族一起静默失效。
-    fonts: ["400 132px 'Permanent Marker'", "400 28px Caveat", "700 28px Caveat"],
+    // 字号只是 shorthand 的一部分，不影响匹配到哪个 @font-face（只看 family/weight/style），
+    // 写当前最大用到的字号便于阅读。
+    fonts: ["400 92px 'Permanent Marker'", "400 14px Caveat"],
   },
 ]);
 
